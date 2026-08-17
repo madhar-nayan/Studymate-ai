@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #faf9f6;
+  --color-surface: #ffffff;
+  --color-ink: #23262b;
+  --color-ink-soft: #5b5f66;
+  --color-moss: #3b5249;
+  --color-moss-dark: #2a3b34;
+  --color-moss-light: #e7ede9;
+  --color-amber: #c98a3e;
+  --color-amber-light: #f6e9d5;
+  --color-line: #e4e1d8;
+  --color-danger: #b3432f;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Subtle desk-lamp glow used behind AI-related actions and headers --
+   the app's one recurring signature element */
+.lamp-glow {
+  position: relative;
+}
+.lamp-glow::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 140%;
+  background: radial-gradient(ellipse at top, var(--color-amber-light) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+::selection {
+  background-color: var(--color-amber-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
